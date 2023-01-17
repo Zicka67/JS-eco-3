@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(62, 169, 240);
+    /* background-color: rgb(62, 169, 240); */
     background: url(https://source.unsplash.com/random) no-repeat center center/cover;
 }
 
@@ -10,11 +10,10 @@ body {
     grid-auto-rows: auto auto auto;     /*  minmax(200px, auto)*/
     grid-auto-flow: row;
     grid-gap: 5px;
-    margin-top: 100px;
     line-height: 200px;
     width: 700px;
     height: 700px;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-left: 600px;
 }
 
@@ -29,5 +28,28 @@ body {
     border-radius: 10px;
     font-size: 200px;
     backdrop-filter: blur(30px);
+    margin: 5px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    color: Red;
 }
 
+.PlayerChangement {
+    width: 550px;
+    height: 40px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    padding-top: 50px;
+    padding-left: 140px;
+    color: rgba(221, 230, 230, 0.603);
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
