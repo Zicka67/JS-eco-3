@@ -34,7 +34,7 @@ body {
     color: Red;
 }
 
-.PlayerChangement {
+#playerChangement {
     width: 550px;
     height: 40px;
     margin: auto;
@@ -43,7 +43,7 @@ body {
     font-size: 40px;
     padding-top: 50px;
     padding-left: 140px;
-    color: rgba(221, 230, 230, 0.603);
+    color: rgb(160, 164, 164);
 }
 
 .red {
