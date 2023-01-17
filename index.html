@@ -15,24 +15,84 @@
 <body>
     
     <div id="container">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
+        <div class="box" data-box></div>
+        <div class="box" data-box></div>
+        <div class="box" data-box></div>
+        <div class="box" data-box></div>
+        <div class="box" data-box></div>
+        <div class="box" data-box></div>
+        <div class="box" data-box></div>
+        <div class="box" data-box></div>
+        <div class="box" data-box></div>
     </div>
+    
+    <div class="PlayerChangement">Au joueur X de jouer</div>
+    
     
     
     <script>
+        //Quand X click sur une case => ajoute la class X pour aficher un X rouge et changer la phrase en " it's O turn !"
+        //Quand O click sur une case => ajoute la class O pour aficher un O vert et changer la phrase en " it's X turn !"
+        //Quand toutes les box ont une class X ou O, changer la phrase en "Finish !"
+        
+        const boxes = document.querySelectorAll("[data-box]");
+        const turn = document.getElementById("PlayerChangement");
+        const Xplayer = "X";
+        const Oplayer = "O";
+        
+        let playerTurn = Xplayer;
+        
+        boxes.forEach(box => {
+            box.addEventListener("click", playGame, { once:true}); // pour déclencher une seule box a la fois 
+        });
+        
+        function playGame(event) {
+            event.target.innerHTML = playerTurn
+            if(playerTurn === Xplayer) {
+                event.target.classList.add("red");
+            } else {
+                event.target.classList.add("green");
+            }
+            playerTurn = (playerTurn === Xplayer) ? Oplayer : Xplayer;
+            // playerTurn = Xplayer ? playerTurn = Oplayer : playerTurn = Xplayer;
+            
+            function changeTextStatus(status) {
+                let statusText;
+                
+                switch(status) {
+                    case  "X" : 
+                    statusText = "Au tour du joueur O";
+                    break;
+                    case  "O" : 
+                    statusText = "Au tour du joueur X";
+                    break;
+                }
+            }  
+        }
         
         
-        
-        
-    </script>
-</body>
-
-</html>
+        // boxes.forEach(box => {
+            //     box.addEventListener("click", function() {
+                //         if (!this.classList.contains("X") && !this.classList.contains("O")) {
+                    //             this.classList.add(currentPlayer);
+                    //             this.textContent = currentPlayer;
+                    //             if (currentPlayer === "X") {
+                        //                 currentPlayer = "O";
+                        //                 turn.textContent = "Au joueur O de jouer";
+                        //             } else {
+                            //                 currentPlayer = "X";
+                            //                 turn.textContent = "Au joueur X de jouer";
+                            //             }
+                            //             if(boxes.length === [...boxes].filter(box => box.classList.contains("X") || box.classList.contains("O")).length) {
+                                //                 turn.textContent = "Finish!";
+                                //             }
+                                //         }
+                                //     });
+                                // });
+                                
+                                
+                                
+                            </script>
+                        </body>
+                        
+                        </html>
