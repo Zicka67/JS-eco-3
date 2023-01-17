@@ -26,7 +26,7 @@
         <div class="box" data-box></div>
     </div>
     
-    <div class="PlayerChangement">Au joueur X de jouer</div>
+    <div id="playerChangement">Au joueur X de jouer</div>
     
     
     
@@ -36,7 +36,7 @@
         //Quand toutes les box ont une class X ou O, changer la phrase en "Finish !"
         
         const boxes = document.querySelectorAll("[data-box]");
-        const turn = document.getElementById("PlayerChangement");
+        const turn = document.getElementById("playerChangement");
         const Xplayer = "X";
         const Oplayer = "O";
         
@@ -46,6 +46,7 @@
             box.addEventListener("click", playGame, { once:true}); // pour déclencher une seule box a la fois 
         });
         
+        
         function playGame(event) {
             event.target.innerHTML = playerTurn
             if(playerTurn === Xplayer) {
@@ -53,46 +54,29 @@
             } else {
                 event.target.classList.add("green");
             }
+            changeTextStatus(playerTurn)
             playerTurn = (playerTurn === Xplayer) ? Oplayer : Xplayer;
             // playerTurn = Xplayer ? playerTurn = Oplayer : playerTurn = Xplayer;
-            
-            function changeTextStatus(status) {
-                let statusText;
-                
-                switch(status) {
-                    case  "X" : 
-                    statusText = "Au tour du joueur O";
-                    break;
-                    case  "O" : 
-                    statusText = "Au tour du joueur X";
-                    break;
-                }
-            }  
         }
         
         
-        // boxes.forEach(box => {
-            //     box.addEventListener("click", function() {
-                //         if (!this.classList.contains("X") && !this.classList.contains("O")) {
-                    //             this.classList.add(currentPlayer);
-                    //             this.textContent = currentPlayer;
-                    //             if (currentPlayer === "X") {
-                        //                 currentPlayer = "O";
-                        //                 turn.textContent = "Au joueur O de jouer";
-                        //             } else {
-                            //                 currentPlayer = "X";
-                            //                 turn.textContent = "Au joueur X de jouer";
-                            //             }
-                            //             if(boxes.length === [...boxes].filter(box => box.classList.contains("X") || box.classList.contains("O")).length) {
-                                //                 turn.textContent = "Finish!";
-                                //             }
-                                //         }
-                                //     });
-                                // });
-                                
-                                
-                                
-                            </script>
-                        </body>
-                        
-                        </html>
+        function changeTextStatus(status) {
+            let statusText;
+            
+            switch(status) {
+                case  "X" : 
+                statusText = "Au joueur O de jouer";
+                break;
+                case  "O" : 
+                statusText = "Au joueur X de jouer";
+                break;
+            }
+            playerChangement.innerHTML = statusText;
+        }  
+        
+        
+        
+    </script>
+</body>
+
+</html>
